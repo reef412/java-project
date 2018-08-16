@@ -6,7 +6,6 @@ pipeline {
                 sh 'mvn --version'
             }
         }
-<<<<<<< HEAD
         stage("Promote Development Branch to Master") {
             agent {
                 node {
@@ -28,7 +27,5 @@ pipeline {
                 sh 'git push origin master'
             }
         }
-=======
->>>>>>> 8a3bdde0c6bb483b7f70ab8985ca05bdf17e7eb8
     }
 }
