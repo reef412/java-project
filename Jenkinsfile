@@ -6,12 +6,12 @@ pipeline {
     }
 
     stages {
-        stage('Unit Test') {
+        /*stage('Unit Test') {
             steps {
                 sh 'ant -f test.xml -v'
                 junit 'reports/result.xml'
             }
-        }
+        }*/
         stage('Setup') {
             steps {
                 echo "Building and Installing Sandman"
@@ -36,7 +36,7 @@ pipeline {
 
     post {
         always {
-            archiveArtifacts artifacts: 'test/*.txt', fingerprint: true
+            archiveArtifacts artifacts: 'dist/*.txt', fingerprint: true
         }
     }
 }
