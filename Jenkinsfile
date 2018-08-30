@@ -1,9 +1,24 @@
 pipeline {
     agent any
     stages {
-        stage('Stage 1') {
+        stage('Setup') {
             steps {
-                echo "Hellow world!"
+                echo "Building and Installing Sandman"
+            }
+        }
+        stage('Independent Tests') {
+            steps {
+                echo "Running Unit and Integration Tests"
+            }
+        }
+        stage('Deploy') {
+            steps {
+                echo "Starting Sandman"
+            }
+        }
+        stage('Dependent Integratinon Tests') {
+            steps {
+                echo "Running Dependent Integration Tests"
             }
         }
     }
