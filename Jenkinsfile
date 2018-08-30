@@ -1,17 +1,13 @@
 pipeline {
     agent any
 
-    options {
-        buildDiscarder(logRotator(numToKeepStr: '4', artifactNumToKeepStr: '1'))
-    }
-
     stages {
-        /*stage('Unit Test') {
+        stage('Unit Test') {
             steps {
                 sh 'ant -f test.xml -v'
                 junit 'reports/result.xml'
             }
-        }*/
+        }
         stage('Setup') {
             steps {
                 echo "Building and Installing Sandman"
