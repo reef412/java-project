@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Unit Tests') {
             steps {
-                pytest --junitxml=tests/results.xml
+                sh pytest --junitxml=tests/results.xml
                 /*sh 'ant -f test.xml -v'
                 junit 'reports/result.xml'*/
             }
