@@ -4,6 +4,7 @@ pipeline {
     stages {
         stage('Unit Tests') {
             steps {
+                sh 'sudo pip install -U pytest'
                 sh 'pytest --junitxml=tests/results.xml'
                 /*sh 'ant -f test.xml -v'
                 junit 'reports/result.xml'*/
