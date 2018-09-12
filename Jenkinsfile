@@ -13,7 +13,7 @@ pipeline {
         stage('Setup') {
             steps {
                 echo "Building and Installing Sandman"
-                sh 'python -u mathlib.py'
+                sh 'python -u mathlib.py 2,5'
             }
         }
         stage('Independent Tests') {
