@@ -3,13 +3,6 @@ pipeline {
 
     stages {
         stage('Tests') {
-            parallel unitTests: {
-                test('Test')
-                }, integrationTests: {
-                    test('IntegrationTest')
-                },
-                faitFast: false
-            }
             steps {
                 /*sh 'sudo pip install -U pytest'*/
                 sh 'pytest --junitxml=tests/results.xml'
