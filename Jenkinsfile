@@ -2,7 +2,14 @@ pipeline {
     agent any
 
     stages {
-        stage('Unit Tests') {
+        stage('Tests') {
+            parallel unitTests: {
+                test('Test')
+                }, integrationTests: {
+                    test('IntegrationTest')
+                },
+                faitFast: false
+            }
             steps {
                 /*sh 'sudo pip install -U pytest'*/
                 sh 'pytest --junitxml=tests/results.xml'
@@ -14,7 +21,6 @@ pipeline {
             steps {
                 echo "Building and Installing Sandman"
                 sh 'python -u mathlib.py'
-                sh 'python hello.py Shariff'
             }
         }
         stage('Independent Tests') {
