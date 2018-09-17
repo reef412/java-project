@@ -14,6 +14,7 @@ pipeline {
             steps {
                 echo "Building and Installing Sandman"
                 sh 'python -u mathlib.py'
+                echo "NODE_NAME = ${env.NODE_NAME}"
             }
         }
         stage('Independent Tests') {
